@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <!-- bower:css -->
+            <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+            <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
+            <!-- endbower -->
+
+            <!-- inject:css -->
+            <!-- endinject -->
+        </head>
+
+        <body>
+	<div ui-view></div>
+            <!-- bower:js -->
+            <script src="bower_components/jquery/dist/jquery.js"></script>
+            <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="bower_components/angular/angular.js"></script>
+            <script src="bower_components/toastr/toastr.js"></script>
+            <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
+            <!-- endbower -->
+            <!-- inject:js -->
+            <!-- endinject -->
+        </body>
+</html>

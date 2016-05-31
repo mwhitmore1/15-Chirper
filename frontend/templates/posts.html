@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inverse bg-faded">
+    <a class="navbar-brand" href="#">Chirper</a>
+    <form class="form-inline navbar-form pull-right">
+        <button class="btn btn-success-outline" type="submit" ng-click="posts.logout()">Log Out</button>
+    </form>
+</nav>
+<div class="container">
+	<div class="flexbox">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				Chirps
+			</div>
+			<div class="panel-footer clearfix">
+				<div class="form-group">
+					<input type="text" ng-model="posts.post.text" ng-init="a">
+					<div ng-show="posts.post.text.length > 240" class="too-much">*Chirp is over the 240 character limit.</div>
+					<button ng-hide="posts.post.text.length > 240" class="btn btn-primary pull-right" ng-click="posts.postChirp()">
+						Post
+					</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="list-group">
+					<div class="list-item clearfix" ng-repeat="chirp in posts.chirps">
+						<em class="date">
+							On {{ chirp.createdDate | date:"M/d/y' at 'h:mma" }}
+						</em>
+						<div class="poster">
+							{{ chirp.userName }} chirped:
+						</div>
+						<div class="post">
+							{{ chirp.text }}
+						</div>
+						<a class="btn btn-success" ng-click="posts.viewComments(chirp)">
+							View Comments
+						</a>
+						<div class="btn btn-primary pull-right" ng-click="posts.likeChirp(chirp.chirpId)">
+							Likes: {{ chirp.likeCount }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

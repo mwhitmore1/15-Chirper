@@ -1,0 +1,16 @@
+(function(){
+	'use strict';
+
+	angular.module('app', [
+		'ui.router',
+		'LocalStorageModule',
+		'toastr'
+		])
+		.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterRovider){
+			$urlRouterProvider.otherwise("login");
+			$stateProvider.state('register', { url: 'register', templateUrl: '/templates/register.html', controller: 'RegisterController as register'})
+			.state('login', { url: 'login', templateUrl: '/template/login.html', controller: 'LoginController as login'})
+			.state('posts', { url: 'posts', templateUrl: 'template/posts.html', controller: 'PostsController as posts'})
+		})	
+		.value('apiUrl', 'http://localhost: /api/';
+})();

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en" >
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <!-- bower:css -->
+            <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"
+            <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+            <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
+            <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+            <!-- endbower -->
+
+            <!-- inject:css -->
+            <link rel="stylesheet" href="app/css/style.css"/>
+            <!-- endinject -->
+        </head>
+
+        <body ng-app="app">
+	       
+            <div class="ui-view"></div>
+            
+            <!-- bower:js -->
+            <script src="bower_components/jquery/dist/jquery.js"></script>
+            <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="bower_components/angular/angular.js"></script>
+            <script src="bower_components/toastr/toastr.js"></script>
+            <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
+            <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+            <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+            <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+            <!-- endbower -->
+            <!-- inject:js -->
+            <script src="/app/app.js"></script>
+            <script src="/app/services/auth.service.js"></script>
+            <script src="/app/services/posts.service.js"></script>
+            <script src="/app/services/chirp.service.js"></script>
+            <script src="/app/auth.intercepter.js"></script>
+            <script src="/app/login.controller.js"></script>
+            <script src="/app/register.controller.js"></script>
+            <script src="/app/posts.controller.js"></script>
+            <script src="/app/comments.controller.js"></script>
+            <!-- endinject -->
+        </body>
+</html>

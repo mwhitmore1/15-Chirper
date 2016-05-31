@@ -1,0 +1,53 @@
+(function(){
+	'use strict';
+
+	angular
+		.module('app')
+		.factory('authService', authService);
+	factory.$inject = ['$http', '$q', 'localStroageService', '$location', 'apiUrl'];
+
+	function authService($http, $q, localStroageService, $location, apiUrl){
+		var state = {
+			loggedIn: false
+		};
+		function register(registration){
+			var defer = $q.defer();
+
+			$http.post(apiUrl + 'accounts/register', registration)
+	.then(
+		function(response){
+			defer.resolve(response)
+		}, function(error){
+			defer.resolve(error);
+		});
+		return defer.promise
+	}
+
+	function login(username, password){
+		logout();
+		state.loggedIn = true;
+		var defer = $q.defer();
+
+		var data = 'grant_type=password&username=' + username +'&password=' + password;
+		$http.post(apiUrl + 'token', data, {headers: {'Content-Type': 'application/x-www-urlencoded'}}).then(
+				function(response){
+					localStorageService.set('authorizationData', response.data);
+					defer.resolve(response.data);
+				}, function(error){
+					defer.reject(error);
+				})
+		return defer.promise;
+	}
+
+	function logout(){
+		state.loggedIn = false;
+		localStorageService.remove('authorizationData');
+		$location.path('#/login');
+	}
+			
+	function init(){
+		var authData = localStorageService.get('authorizationData');
+		state.loggedIn = true;
+		$location.path('#/posts');
+	}	
+})();
